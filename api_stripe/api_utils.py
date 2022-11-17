@@ -1,0 +1,3 @@
+import stripe
+
+stripe_api_key = "sk_test_51M4rA9Gjg9ZFyR2ke94VEq5LCT57rK7lr5TieJ4ygUwE6uy7i0R5Tm2hzmcDU56X1jxphbeqkQ6CbnXD41MC3kcG00czK20yyG"
