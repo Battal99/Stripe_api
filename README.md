@@ -8,7 +8,7 @@
 
 ### Копирование репозитория и установка зависимостей
 *  #### git clone https://github.com/Battal99/stripe_api
-*  #### cd project_api_stripe
+*  #### cd stripe_api
 * #### virtualenv venv
 * #### source venv/bin/activate
 * #### pip install -r requirements.txt
