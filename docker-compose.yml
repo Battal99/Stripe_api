@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/api_stripe
+      - ./db.sqlite3:/api_stripe/db.sqlite3
+    command: /bin/sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - 8000:8000
+    env_file:
+      - ./project_api_stripe/.env
