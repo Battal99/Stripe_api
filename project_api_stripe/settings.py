@@ -9,9 +9,21 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
+import sys
 from pathlib import Path
-import stripe
+import logging
+import dotenv
+
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(dotenv_path):
+    dotenv.load_dotenv(dotenv_path)
+
+logger = logging.getLogger('logger')
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler(stream=sys.stdout)
+handler.setFormatter(logging.Formatter(fmt='[%(asctime)s: %(levelname)s] %(message)s'))
+logger.addHandler(handler)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +32,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+ya(rusqaacw&tm++gw_rz1@3u3jglwxv&%zs*og2)bo-!l0&e'
+SECRET_KEY = os.environ['SECRET_KEY']
+STRIPE_PK = os.environ["STRIPE_PK"]
+STRIPE_SK = os.environ["STRIPE_SK"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 

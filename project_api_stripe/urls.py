@@ -21,6 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('buy/<int:item_id>/', views.get_buy_id, name='buy'),
     path('item/<int:item_id>/', views.get_payment),
-    path('cancel/', views.CancelView.as_view(), name='cancel'),
-    path('success/', views.SuccessView.as_view(), name='success'),
 ]
