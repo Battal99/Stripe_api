@@ -29,7 +29,8 @@
 
 ### тесты
 pytest
-Эндпоинты
+
+### Эндпоинты
 
 `GET /buy/1` 
 Ответ: {"sessionId" : "cs_test_a11vg19jNPJzFfyK5gQ4qys6JiaxsapbCHD8R3D5mSPxvlGv0tQ1BEPAxN"}
