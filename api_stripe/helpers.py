@@ -42,7 +42,7 @@ def create_price(product: Item):
     return price_id
 
 
-def create_session(product: Item) -> str:
+def create_session(product: Item) -> dict:
     price_id = create_price(product)
     customer = stripe.checkout.Session.create(
         success_url=SUCCESS_URL,
@@ -58,10 +58,10 @@ def create_session(product: Item) -> str:
         mode="payment",
     )
     customer_json = json.dumps(customer)
-    customer_id = json.loads(customer_json)['id']
-    logger.debug(f"customer_id={customer_id}")
+    session = json.loads(customer_json)
+    logger.debug(f"session={session}")
 
-    return customer_id
+    return session
 
 
 def find_product(product_id: int) -> Item | None:
