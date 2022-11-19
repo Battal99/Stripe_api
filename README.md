@@ -27,6 +27,8 @@
 ### Команда для запуска через docker
 #### docker-compose up --build
 
+### тесты
+pytest
 Эндпоинты
 
 `GET /buy/1` 
