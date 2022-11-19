@@ -19,6 +19,8 @@ from api_stripe import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('buy/<int:item_id>/', views.get_buy_id, name='buy'),
-    path('item/<int:item_id>/', views.get_payment),
+    path('buy/<int:item_id>/', views.get_buy_id_view, name='buy'),
+    path('item/<int:item_id>/', views.get_payment_view, name='item'),
+    path('cancel', views.CanceledView.as_view(), name='cancel'),
+    path('success', views.SuccessView.as_view(), name='success'),
 ]

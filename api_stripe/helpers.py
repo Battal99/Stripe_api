@@ -3,7 +3,12 @@ import json
 import stripe
 
 from api_stripe.models import Item
-from project_api_stripe.settings import logger, STRIPE_SK
+from project_api_stripe.settings import (
+    logger,
+    STRIPE_SK,
+    SUCCESS_URL,
+    CANCEL_URL,
+)
 
 
 def create_product(name_product: str) -> str:
@@ -40,8 +45,8 @@ def create_price(product: Item):
 def create_session(product: Item) -> str:
     price_id = create_price(product)
     customer = stripe.checkout.Session.create(
-        success_url="http://127.0.0.1/success",
-        cancel_url="http://127.0.0.1/cancel",
+        success_url=SUCCESS_URL,
+        cancel_url=CANCEL_URL,
         line_items=[
             {"price": price_id,
              "quantity": 1,

@@ -13,10 +13,11 @@
 * #### source venv/bin/activate
 * #### pip install -r requirements.txt
 
-### Установить переменные окружения в папке project_api_stripe
+### Установить environment variables в папке project_api_stripe
 создать файл .env и заполнить eго ключами
 1. #### STRIPE_SK = <stripe_sk>
 2. #### SECRET_KEY = <secret_key>
+3. #### STRIPE_PUBLIC_KEY = <your_public_key>
 
 ### Применение миграций, создания суперпользователя и запуск проекта
 - #### python manage.py migrate
@@ -44,7 +45,7 @@
 <button id="buy-button">Buy</button>
 <script src="https://js.stripe.com/v3/"></script>
 <script type="text/javascript">
-      const stripe = Stripe('pk_test_51M4rA9Gjg9ZFyR2kyF5VYvYnCOVgRJWqTkeYt7l1bK2ZeHh08Ol2TUxASr0iCsxLCjr2o6o0VmQdNrAkqNrAKuEF00uHZamumd');
+      const stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
       var buyButton = document.getElementById("buy-button");
         buyButton.addEventListener('click', function() {
     fetch("/buy/1/", {method: 'GET'})
